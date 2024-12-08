@@ -15,7 +15,9 @@ export default function App() {
 
 	return (
 		<View style={styles.container}>
-			<ShoppingListItem />
+			<ShoppingListItem name="car"/>
+			<ShoppingListItem name="milk"/>
+			<ShoppingListItem name="egg"/>
 		</View>
 	);
 }
@@ -33,10 +35,6 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'space-between',
-	},
-	itemText: {
-		fontSize: 18,
-		fontWeight: '200',
 	},
 	button: {
 		backgroundColor: theme.colorBlack,
