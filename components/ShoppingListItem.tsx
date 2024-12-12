@@ -60,8 +60,9 @@ const styles = StyleSheet.create({
 	itemContainer: {
 		borderBottomColor: theme.colorCerulean,
 		borderBottomWidth: 1,
-		paddingHorizontal: 16,
+		// paddingHorizontal: 16,
 		marginVertical: 4,
+    marginHorizontal: 12,
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'space-between',
@@ -76,8 +77,7 @@ const styles = StyleSheet.create({
 		textDecorationColor: theme.colorGrey,
 	},
 	itemText: {
-		fontSize: 32,
-		fontWeight: '200',
+		fontSize: 24,
 	},
 });
 

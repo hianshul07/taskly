@@ -4,16 +4,17 @@ import { Tabs } from 'expo-router';
 import Entypo from '@expo/vector-icons/Entypo';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import AntDesign from '@expo/vector-icons/AntDesign';
+import { theme } from '../theme';
 
 export default function Layout() {
 	return (
-		<Tabs>
+		<Tabs screenOptions={{tabBarActiveTintColor: theme.colorCerulean, tabBarInactiveTintColor: 'black'}}>
 			<Tabs.Screen
 				name="index"
 				options={{
 					title: 'Shopping list',
-					tabBarIcon: () => {
-						return <Entypo name="home" size={32} color="black" />;
+					tabBarIcon: ({color}) => {
+						return <Entypo name="home" size={32} color={color} />;
 					},
 				}}
 			/>
@@ -21,8 +22,9 @@ export default function Layout() {
       name='counter'
 				options={{
 					title: 'Counter',
-					tabBarIcon: () => {
-						return <MaterialCommunityIcons name="account" size={32} color="black" />;
+          headerShown: false,
+					tabBarIcon: ({color}) => {
+						return <MaterialCommunityIcons name="account" size={32} color={color} />;
 					},
 				}}
 			/>
@@ -30,8 +32,8 @@ export default function Layout() {
 				name="idea"
 				options={{
 					title: 'Idea',
-					tabBarIcon: () => {
-						return <AntDesign name="infocirlce" size={24} color="black" />;
+					tabBarIcon: ({color}) => {
+						return <AntDesign name="infocirlce" size={24} color={color} />;
 					},
 				}}
 			/>
