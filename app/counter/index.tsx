@@ -1,19 +1,29 @@
 /* eslint-disable prettier/prettier */
-import { router } from 'expo-router';
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { theme } from '../../theme';
+import { registerForPushNotificationsAsync } from '../../utils/registerForPushNotifications';
 
-export default function CounterScreen() {
+const CounterScreen = () => {
+
+	const handleRequestPermission = async () => {
+		const result = await registerForPushNotificationsAsync();
+		console.log(result);
+		 
+	}
+
 	return (
 		<View style={styles.container}>
-			<TouchableOpacity onPress={() => router.navigate('idea')}>
+			<TouchableOpacity onPress={handleRequestPermission} style={styles.button} activeOpacity={0.8}>
 				{/* <Text style={{ textAlign: 'center', marginBottom: 18, fontSize: 24 }}>
 					Go to idea
 				</Text> */}
+			<Text style={styles.buttonText}>Request permission</Text>
 			</TouchableOpacity>
-			<Text style={styles.text}>Counter</Text>
 		</View>
 	);
 }
+
+export default CounterScreen;
 
 const styles = StyleSheet.create({
 	container: {
@@ -22,7 +32,16 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		backgroundColor: '#fff',
 	},
-	text: {
-		fontSize: 24,
+	buttonText: {
+		color: theme.colorWhite,
+		textTransform: 'uppercase',
+		letterSpacing: 1,
+		fontWeight: 'semibold'
 	},
+	button: {
+		backgroundColor: theme.colorBlack,
+		padding: 12,
+		borderRadius: 8
+	},
+
 });
